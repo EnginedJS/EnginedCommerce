@@ -10,6 +10,7 @@
     "engined": "0.0.2",
     "engined-http": ">=0.0.6",
     "engined-mysql": "0.0.1",
+    "engined-validator": ">=0.0.1",
     "koa-router": "^7.2.1"
   },
   "repository": {},

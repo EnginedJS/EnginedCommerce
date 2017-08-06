@@ -1,5 +1,6 @@
 module.exports = {
 	appName: 'EnginedCommerce',
+	externalUrl: 'http://localhost:5678',
 	server: {
 		port: 5678
 	},
