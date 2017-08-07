@@ -11,6 +11,8 @@
     "engined-http": ">=0.0.6",
     "engined-mysql": "0.0.1",
     "engined-validator": ">=0.0.1",
+    "engined-storage": ">=0.0.1",
+    "engined-storage-local": ">=0.0.1",
     "koa-router": "^7.2.1"
   },
   "repository": {},
