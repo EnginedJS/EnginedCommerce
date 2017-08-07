@@ -1,5 +1,6 @@
 const events = require('events');
 const commander = require('commander');
+const table = require('borderless-table');
 
 const initializeServices = async () => {
 
@@ -31,14 +32,17 @@ const state = new events.EventEmitter();
 
 // Grant administrator permission
 state.on('grant', async (email) => {
+
 	let serviceManager = await initializeServices();
 
 	let memberAgent = serviceManager.ctx.get('Member')['default'];
 
+	// Find member by email
 	let member = await memberAgent
 		.getMemberManager()
 		.checkMemberByEmail(email);
 
+	// Grant permissions to user
 	await memberAgent
 		.getPermissionManager()
 		.addPermission(member.id, [
@@ -51,10 +55,34 @@ state.on('grant', async (email) => {
 	process.exit();
 });
 
+state.on('list_members', async () => {
+
+	let serviceManager = await initializeServices();
+
+	let memberAgent = serviceManager.ctx.get('Member')['default'];
+
+	// Get members
+	let members = await memberAgent
+		.getMemberManager()
+		.listMembers();
+
+	table(members);
+});
+
+commander.version('0.0.1');
+
 commander
-	.version('0.0.1')
-	.command('grant [email]', 'Grant administrator permission to a user')
+	.command('grant [email]')
+	.description('Grant administrator permission to a user')
 	.action((email) => {
 		state.emit('grant', email);
-	})
-	.parse(process.argv);
+	});
+
+commander
+	.command('list member')
+	.description('List members')
+	.action(() => {
+		state.emit('list_members');
+	});
+
+commander.parse(process.argv);
