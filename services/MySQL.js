@@ -1,5 +1,4 @@
 const config = require('config');
-const path = require('path');
 const Service = require('engined-mysql');
 
 const MySQL = Service({

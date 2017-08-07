@@ -6,5 +6,6 @@ module.exports = {
 	HTTP: require('./HTTP'),
 	Member: require('./Member'),
 	MemberAPIProvider: require('./MemberAPIProvider'),
+	MemberAdminAPIProvider: require('./MemberAdminAPIProvider'),
 	LandingPage: require('./LandingPage')
 };

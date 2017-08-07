@@ -6,13 +6,14 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "commander": "^2.11.0",
     "config": "^1.26.1",
     "engined": "0.0.2",
     "engined-http": ">=0.0.6",
     "engined-mysql": "0.0.1",
-    "engined-validator": ">=0.0.1",
     "engined-storage": ">=0.0.1",
     "engined-storage-local": ">=0.0.1",
+    "engined-validator": ">=0.0.1",
     "koa-router": "^7.2.1"
   },
   "repository": {},
