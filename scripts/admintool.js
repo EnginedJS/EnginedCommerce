@@ -49,7 +49,7 @@ state.on('grant', async (email) => {
 			'Admin.access',
 			'Member.list'
 		])
-	
+
 	console.log(email, 'is administrator now.');
 
 	process.exit();

@@ -11,7 +11,6 @@ router.get('/', async (ctx, next) => {
 });
 
 module.exports = class extends RouterService() {
-
 	async setupRoutes() {
 		return router;
 	}
