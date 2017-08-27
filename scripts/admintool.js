@@ -11,9 +11,28 @@ const initializeServices = async () => {
 	let ctx = new Context();
 
 	try {
+
+		// Loading services
+		let services = require('../services');
+
+		// We only pick up services what we need
+		let selected = [
+			'Storage',
+			'LocalStorage',
+			'Mailer',
+			'GmailMailer',
+			'MySQL',
+			'Member'
+		];
+
+		let selectedServices = selected.reduce((result, serviceName) => {
+			result[serviceName] = services[serviceName];
+			return result;
+		}, {});
+
 		// Initializing engines
 		let serviceManager = new Manager(ctx, { verbose: false });
-		await serviceManager.loadServices(require('../services'));
+		await serviceManager.loadServices(selectedServices);
 		await serviceManager.startAll();
 
 		// Force to stop instance
@@ -35,7 +54,7 @@ state.on('grant', async (email) => {
 
 	let serviceManager = await initializeServices();
 
-	let memberAgent = serviceManager.ctx.get('Member')['default'];
+	let memberAgent = serviceManager.ctx.get('Member').getAgent('default');
 
 	// Find member by email
 	let member = await memberAgent
@@ -59,7 +78,7 @@ state.on('list_members', async () => {
 
 	let serviceManager = await initializeServices();
 
-	let memberAgent = serviceManager.ctx.get('Member')['default'];
+	let memberAgent = serviceManager.ctx.get('Member').getAgent('default');
 
 	// Get members
 	let members = await memberAgent
@@ -67,6 +86,8 @@ state.on('list_members', async () => {
 		.listMembers();
 
 	table(members);
+
+	process.exit();
 });
 
 commander.version('0.0.1');

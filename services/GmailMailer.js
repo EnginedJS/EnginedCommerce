@@ -1,7 +1,7 @@
 const config = require('config');
 const Service = require('engined-mailer-gmail');
 
-const LocalMailer = Service({
+const GmailMailer = Service({
 	agentName: 'default',
 	type: 'OAuth2',
     user: config.get('mailer').auth.user,
@@ -12,4 +12,4 @@ const LocalMailer = Service({
     accessToken: config.get('mailer').auth.accessToken
 });
 
-module.exports = LocalMailer;
+module.exports = GmailMailer;

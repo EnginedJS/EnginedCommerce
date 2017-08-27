@@ -3,11 +3,10 @@ module.exports = {
 	Storage: require('engined-storage')(),
 	LocalStorage: require('./LocalStorage'),
 	Mailer: require('engined-mailer')(),
-	LocalMailer: require('./LocalMailer'),
+	GmailMailer: require('./GmailMailer'),
 	MySQL: require('./MySQL'),
 	HTTP: require('./HTTP'),
 	Member: require('./Member'),
 	MemberAPIProvider: require('./MemberAPIProvider'),
-	MemberAdminAPIProvider: require('./MemberAdminAPIProvider'),
 	LandingPage: require('./LandingPage')
 };
