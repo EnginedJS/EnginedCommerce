@@ -5,6 +5,7 @@ module.exports = {
 	Mailer: require('engined-mailer')(),
 	GmailMailer: require('./GmailMailer'),
 	MySQL: require('./MySQL'),
+	gRPC: require('./gRPC'),
 	HTTP: require('./HTTP'),
 	Member: require('./Member'),
 	MemberAPIProvider: require('./MemberAPIProvider'),

@@ -10,6 +10,7 @@
     "commander": "^2.11.0",
     "config": "^1.26.1",
     "engined": "0.0.4",
+    "engined-grpc": "0.0.1",
     "engined-http": ">=0.0.9",
     "engined-mailer": "0.0.1",
     "engined-mailer-gmail": "0.0.1",
