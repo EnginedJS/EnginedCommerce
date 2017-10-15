@@ -9,5 +9,6 @@ module.exports = {
 	HTTP: require('./HTTP'),
 	Member: require('./Member'),
 	MemberAPIProvider: require('./MemberAPIProvider'),
+	MemberGRPC: require('./Member-gRPC'),
 	LandingPage: require('./LandingPage')
 };

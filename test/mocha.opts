@@ -1,0 +1,4 @@
+--ui bdd
+--timeout 15000
+--slow 100
+--recursive

@@ -19,6 +19,9 @@ const main = async () => {
 			console.log('Stopping instance');
 			await serviceManager.stopAll();
 		});
+
+		return serviceManager;
+
 	} catch(e) {
 		console.error(e);
 	}
